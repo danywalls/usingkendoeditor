@@ -1,10 +1,24 @@
 import { Component } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'usingkendoeditor';
+  content = 'hello from kendo';
+  showEditor = false;
+  status = 'edit';
+
+  public get safeContent(): SafeHtml {
+    return this.domSanitizer.bypassSecurityTrustHtml(this.content);
+  }
+
+  constructor(private domSanitizer: DomSanitizer) {}
+
+  toggleEditor() {
+    this.showEditor = !this.showEditor;
+    this.status = this.showEditor ? 'save' : 'edit';
+  }
 }

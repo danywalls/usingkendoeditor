@@ -1,0 +1,12 @@
+div {
+
+  margin: 0;
+  padding: 1rem;
+
+}
+
+.toolbar {
+
+  display: flex;
+  justify-content: end;
+}
