@@ -12,7 +12,7 @@ export class AppComponent {
   status = 'edit';
 
   public get safeContent(): SafeHtml {
-    return this.domSanitizer.bypassSecurityTrustHtml(this.content);
+    return this.content;//this.domSanitizer.bypassSecurityTrustHtml(this.content);
   }
 
   constructor(private domSanitizer: DomSanitizer) {}
